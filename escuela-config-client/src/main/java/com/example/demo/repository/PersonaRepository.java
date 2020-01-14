@@ -1,12 +1,17 @@
 package com.example.demo.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import java.util.Optional;
+
 import org.springframework.stereotype.Repository;
 
+import com.example.demo.dto.PersonaDTO;
 import com.example.demo.entity.Personas;
+import com.example.demo.util.CustomRepository;
 
 @Repository
-public interface PersonaRepository extends CrudRepository<Personas, Long> {
+public interface PersonaRepository extends CustomRepository<Personas, Long> {
+	
+	Optional<PersonaDTO> findByDni(String dni);
 	
 }
 
